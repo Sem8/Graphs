@@ -129,6 +129,7 @@ class Graph:
                     q.enqueue(new_path)
         return None
 
+
         
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -136,25 +137,41 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
+        # s = Stack()
+        # s.push([starting_vertex])
+        # found = []
+     
+        # while s.size() > 0:
+        #     path = s.pop()
+        #     v = path[-1]
+
+        #     if v not in found:
+        #         if v == destination_vertex:
+        #             return path
+        #         found.append(v)
+        #         for next_vert in self.vertices[v]:
+        #             new_path = list(path)
+        #             new_path.append(next_vert)
+        #             s.push(new_path)
+        # return None
         s = Stack()
         s.push([starting_vertex])
-        found = []
-     
+        visited = []
+
         while s.size() > 0:
             path = s.pop()
-            v = path[-1]
+            vertex = path[-1]
 
-            if v not in found:
-                if v == destination_vertex:
+            if vertex not in visited:
+                if vertex == destination_vertex:
                     return path
-                found.append(v)
-                for next_vert in self.vertices[v]:
-                    new_path = list(path)
-                    new_path.append(next_vert)
-                    s.push(new_path)
+                visited.append(vertex)
+            for neighbor in self.vertices[vertex]:
+                new_path = list(path)
+                new_path.append(neighbor)
+                s.push(new_path)
+
         return None
-
-
 
 
 
