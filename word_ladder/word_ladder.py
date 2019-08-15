@@ -28,6 +28,7 @@ class Queue():
 def get_neighbors(word):
     neighbors = []
     string_word = list(word) # turns each word into an array of characters
+    
     for i in range(len(string_word)):
         for letter in list('abcdefghijklmnopqrstuvwxyz'):
             # loop through string_word and change each letter to letter and check if
