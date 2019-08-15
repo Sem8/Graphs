@@ -16,7 +16,7 @@ class SocialGraph:
         return f'Freindships: {self.friendships}'
 
     def addFriendship(self, userID, friendID):
-        """
+        """ 
         Creates a bi-directional friendship
         """
         if userID == friendID:
